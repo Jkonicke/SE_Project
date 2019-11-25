@@ -2,8 +2,13 @@
 # Unity generated #
 # =============== #
 Temp/
-Library/
- 
+Library/APIUpdater
+Library/metadata
+Library/PackageCache
+Library/PlayerDataCache
+Library/ShaderCache
+Library/StateCache
+
 # ===================================== #
 # Visual Studio / MonoDevelop generated #
 # ===================================== #
