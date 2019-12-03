@@ -35,6 +35,11 @@ public class StartGame : MonoBehaviour
         SceneManager.LoadScene("MainScene", LoadSceneMode.Single);
     }
 
+    public void LoadLeaderboardScene()
+    {
+        SceneManager.LoadScene("Leaderboard", LoadSceneMode.Single);
+    }
+
     public void UnloadMenu()
     {
         SceneManager.UnloadSceneAsync("MainMenu");
