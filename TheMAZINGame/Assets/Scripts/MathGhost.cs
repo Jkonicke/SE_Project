@@ -40,7 +40,7 @@ public class MathGhost : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (enter)
+        if (enter && !MathGhostInput.isCorrect)
         {
             SceneManager.LoadScene("MathGhostScene", LoadSceneMode.Additive);
             Debug.Log("entered - MathGhost");
@@ -68,7 +68,7 @@ public class MathGhost : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (exit)
+        if (exit && !MathGhostInput.isCorrect)
         {
             SceneManager.UnloadSceneAsync("MathGhostScene");
             Debug.Log("exit - MathGhost");

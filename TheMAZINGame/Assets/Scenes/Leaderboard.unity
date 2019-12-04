@@ -482,10 +482,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1284123850}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad94c4e62adbe79479af357c16bb7cc2, type: 3}
+  m_Script: {fileID: 11500000, guid: 5f452ed6774d5784d8d857b6b6f47ec9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreEnterPrefab: {fileID: 7419335994374955554, guid: 18728a187fecb5246a8c8cf6f831fe1b,
+  scoreEnterPrefab: {fileID: 7419335994374955554, guid: 1a464effdef7d47418242d72fd668649,
     type: 3}
 --- !u!114 &1284123853
 MonoBehaviour:
