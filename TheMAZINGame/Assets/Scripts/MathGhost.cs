@@ -42,6 +42,11 @@ public class MathGhost : MonoBehaviour
     {
         if (enter && !MathGhostInput.isCorrect)
         {
+            //having an issue where the character wants to slide sometimes
+            Rigidbody rb = FindObjectOfType<Rigidbody>();
+            rb.isKinematic = true;
+            rb.isKinematic = false;
+
             SceneManager.LoadScene("MathGhostScene", LoadSceneMode.Additive);
             Debug.Log("entered - MathGhost");
         }

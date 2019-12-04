@@ -52,12 +52,14 @@ public class MathGhostInput : MonoBehaviour
         if (field.textComponent.text != "14")
         {
             Debug.Log("WRONG");
+            textCorrect.enabled = false;
             textWrong.enabled = true;
             StartCoroutine(WaitCoroutine());
         }
         else
         {
             Debug.Log("RIGHT");
+            textWrong.enabled = false;
             textCorrect.enabled = true;
             isCorrect = true;
             StartCoroutine(WaitCoroutine());

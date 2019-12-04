@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MathGhostScene.unity
     guid: ea13ba3e9e1910e4885560bf8dd79928
+  - enabled: 1
+    path: Assets/Scenes/Leaderboard.unity
+    guid: bf35c53b8c13f7740ad087ad772ad50d
+  - enabled: 1
+    path: Assets/Scenes/EnglishGhostScene.unity
+    guid: 899d9a4ed50286f4f9a55016fc473468
   m_configObjects: {}
