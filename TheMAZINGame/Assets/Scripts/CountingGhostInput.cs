@@ -8,11 +8,18 @@ public class CountingGhostInput : MonoBehaviour
 {
     Text textCorrect;
     Text textWrong;
+    int currentScore;
+    private Score scoreScene;
     public static bool isCorrect = false;
 
     // Start is called before the first frame update
     void Start()
     {
+        if (PlayerPrefs.HasKey("currentScore"))
+        {
+            currentScore = PlayerPrefs.GetInt("currentScore");
+        }
+
         var texts = FindObjectsOfType<Text>();
 
         //find text objects to hide/unhide
@@ -46,6 +53,10 @@ public class CountingGhostInput : MonoBehaviour
         if (!isCorrect)
         {
             Debug.Log("WRONG");
+            //currentScore = currentScore - 225;
+            //Debug.Log("WRONG on counting ghost currentScore: " + currentScore);
+            scoreScene = GameObject.Find("ScoreUpdater").GetComponent<Score>();
+            scoreScene.SubtractFromScore(225);
             textCorrect.enabled = false;
             textWrong.enabled = true;
             StartCoroutine(WaitCoroutine());
@@ -57,6 +68,8 @@ public class CountingGhostInput : MonoBehaviour
         if (!isCorrect)
         {
             Debug.Log("RIGHT");
+            scoreScene = GameObject.Find("ScoreUpdater").GetComponent<Score>();
+            scoreScene.AddToScore(1900);
             textWrong.enabled = false;
             textCorrect.enabled = true;
             isCorrect = true;
@@ -76,10 +89,14 @@ public class CountingGhostInput : MonoBehaviour
         Debug.Log("Finished Coroutine at timestamp : " + Time.time);
         textWrong.enabled = false;
         textCorrect.enabled = false;
+
         if (isCorrect)
         {
+            //currentScore = currentScore + 1900;
+            //PlayerPrefs.SetInt("currentScore", currentScore);
+            //Debug.Log("after counting ghost currentScore: " + currentScore);
             SceneManager.UnloadSceneAsync("CountingGhostScene");
+            SceneManager.LoadScene("EndScene");
         }
-
     }
 }

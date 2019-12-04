@@ -20,4 +20,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/EnglishGhostScene.unity
     guid: 899d9a4ed50286f4f9a55016fc473468
+  - enabled: 1
+    path: Assets/Scenes/CountingGhostScene.unity
+    guid: 493be13abade6b24b92384458f13ef34
+  - enabled: 1
+    path: Assets/Scenes/EndScene.unity
+    guid: 55c8248582f51134ebd25c219a8657a7
+  - enabled: 1
+    path: Assets/Scenes/ScoreScene.unity
+    guid: 56e0eb6b58f44eb4c9fff1be06e45d80
   m_configObjects: {}

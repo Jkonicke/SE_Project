@@ -8,11 +8,18 @@ public class EnglishGhostInput : MonoBehaviour
 {
     Text textCorrect;
     Text textWrong;
+    int currentScore;
+    private Score scoreScene;
     public static bool isCorrect = false;
 
     // Start is called before the first frame update
     void Start()
     {
+        if (PlayerPrefs.HasKey("currentScore"))
+        {
+            currentScore = PlayerPrefs.GetInt("currentScore");
+        }
+
         var texts = FindObjectsOfType<Text>();
 
         //find text objects to hide/unhide
@@ -46,6 +53,12 @@ public class EnglishGhostInput : MonoBehaviour
         if (!isCorrect)
         {
             Debug.Log("WRONG");
+            /*
+            currentScore = currentScore - 250;
+            Debug.Log("WRONG on english ghost currentScore: " + currentScore);
+            */
+            scoreScene = GameObject.Find("ScoreUpdater").GetComponent<Score>();
+            scoreScene.SubtractFromScore(250);
             textCorrect.enabled = false;
             textWrong.enabled = true;
             StartCoroutine(WaitCoroutine());
@@ -57,6 +70,8 @@ public class EnglishGhostInput : MonoBehaviour
         if (!isCorrect)
         {
             Debug.Log("RIGHT");
+            scoreScene = GameObject.Find("ScoreUpdater").GetComponent<Score>();
+            scoreScene.AddToScore(1500);
             textWrong.enabled = false;
             textCorrect.enabled = true;
             isCorrect = true;
@@ -78,8 +93,10 @@ public class EnglishGhostInput : MonoBehaviour
         textCorrect.enabled = false;
         if (isCorrect)
         {
+            //currentScore = currentScore + 1500;
+            //PlayerPrefs.SetInt("currentScore", currentScore);
+            //Debug.Log("after english ghost currentScore: " + currentScore);
             SceneManager.UnloadSceneAsync("EnglishGhostScene");
         }
-
     }
 }

@@ -8,6 +8,9 @@ public class MathGhostInput : MonoBehaviour
 {
     Text textCorrect;
     Text textWrong;
+    int currentScore;
+    private Score scoreScene;
+
     //public RectTransform questionPanel;
 
     public static bool isCorrect = false;
@@ -16,6 +19,13 @@ public class MathGhostInput : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        SceneManager.LoadScene("ScoreScene", LoadSceneMode.Additive);
+
+        if (PlayerPrefs.HasKey("currentScore"))
+        {
+            currentScore = PlayerPrefs.GetInt("currentScore");
+        }
+
         //var questionPanel = FindObjectOfType<RectTransform>();
         var texts = FindObjectsOfType<Text>();
 
@@ -52,6 +62,14 @@ public class MathGhostInput : MonoBehaviour
         if (field.textComponent.text != "14")
         {
             Debug.Log("WRONG");
+            /*
+            currentScore = currentScore - 100;
+            Debug.Log("WRONG on math ghost currentScore: " + currentScore);
+            scoreScene = GameObject.Find("ScoreUpdater").GetComponent<Score>();
+            scoreScene.UpdateScore(currentScore);
+            */
+            scoreScene = GameObject.Find("ScoreUpdater").GetComponent<Score>();
+            scoreScene.SubtractFromScore(100);
             textCorrect.enabled = false;
             textWrong.enabled = true;
             StartCoroutine(WaitCoroutine());
@@ -59,6 +77,13 @@ public class MathGhostInput : MonoBehaviour
         else
         {
             Debug.Log("RIGHT");
+            /*
+            currentScore = currentScore + 1000;
+            PlayerPrefs.SetInt("currentScore", currentScore);
+            Debug.Log("after math ghost currentScore: " + currentScore);
+            */
+            scoreScene = GameObject.Find("ScoreUpdater").GetComponent<Score>();
+            scoreScene.AddToScore(1000);
             textWrong.enabled = false;
             textCorrect.enabled = true;
             isCorrect = true;
@@ -82,6 +107,5 @@ public class MathGhostInput : MonoBehaviour
         {
             SceneManager.UnloadSceneAsync("MathGhostScene");
         }
-
     }
 }

@@ -5,12 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class EscListener : MonoBehaviour
 {
-    int first_run = 0;
+    //int first_run = 0;
     // Start is called before the first frame update
     void Start()
     {
         //SceneManager.LoadScene("MainMenu", LoadSceneMode.Additive);
-        
     }
 
     // Update is called once per frame

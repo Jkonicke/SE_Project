@@ -6,28 +6,32 @@ using UnityEngine.UI;
 
 public class StartGame : MonoBehaviour
 {
+    int firstRun = 0;
+    Text textResume;
     // Start is called before the first frame update
     void Start()
     {
+        PlayerPrefs.SetInt("currentScore", 0);
+        //need to set color here to
+        //E9C536
         /*
-        //trying to set the button text color of "Resume" to yellow after the scene has been loaded.
-        //cant seem to access the button and its text color
-        GameObject buttonText = GameObject.FindGameObjectWithTag("resumeButton");
-        if (SceneManager.sceneCount > 1)
+        var texts = FindObjectsOfType<Text>();
+        foreach (Text t in texts)
         {
-
-            
-            //need to set color here to
-            //E9C536
-
+            if (t.text == "Resume")
+            {
+                textResume = t;
+            }
         }
+        textResume.color = Color.gray;
+        //new Color(233 / 255f, 197 / 255f, 54 / 255f);
         */
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void LoadMainScene()

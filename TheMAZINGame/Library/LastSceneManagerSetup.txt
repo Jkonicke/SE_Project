@@ -16,10 +16,18 @@ sceneSetups:
   isActive: 0
   isSubScene: 0
 - path: Assets/Scenes/EnglishGhostScene.unity
-  isLoaded: 1
+  isLoaded: 0
   isActive: 0
   isSubScene: 0
 - path: Assets/Scenes/CountingGhostScene.unity
-  isLoaded: 1
+  isLoaded: 0
+  isActive: 0
+  isSubScene: 0
+- path: Assets/Scenes/EndScene.unity
+  isLoaded: 0
+  isActive: 0
+  isSubScene: 0
+- path: Assets/Scenes/ScoreScene.unity
+  isLoaded: 0
   isActive: 0
   isSubScene: 0
